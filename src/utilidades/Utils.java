@@ -7,4 +7,9 @@ public class Utils {
 		for(int c = 0 ; c < 300; c++ )
 			System.out.println();
 	}
+	
+	public static void separador()
+	{
+		System.out.println("------------------------------------------------------");
+	}
 }
