@@ -23,4 +23,30 @@ public class Jugador {
 		piezas[4] = new Vampiro(blanco,4,y);
 		piezas[5] = new HombreLobo(blanco,5,y);
 	}
+	public void checkHpPiezas()
+	{
+		for(int j = 0; j<6; j++)
+			if(piezas[j] != null)
+			{
+				if(piezas[j] instanceof Muerte)
+					((Muerte)piezas[j]).checkHpZombies();
+				
+				if(piezas[j].getHp() <= 0)
+				{
+					if(piezas[j] instanceof Muerte)
+						((Muerte)piezas[j]).clearZombies();
+						piezas[j] = null;
+				}
+			}
+	}
+	public int getCantidadDePiezas()
+	{
+		int numero_de_piezas = 0;
+		
+		for(int j = 0 ; j<6 ; j++)
+			if(piezas[j] != null)
+				numero_de_piezas++;
+		
+		return numero_de_piezas;
+	}
 }
