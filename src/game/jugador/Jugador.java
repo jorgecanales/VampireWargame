@@ -1,9 +1,8 @@
 package game.jugador;
-import java.util.ArrayList;
-
-import utilidades.Utils;
 import game.pieza.Pieza;
 import game.tablero.Tablero;
+
+import java.util.ArrayList;
 public class Jugador {
 
 	Tablero tablero;
