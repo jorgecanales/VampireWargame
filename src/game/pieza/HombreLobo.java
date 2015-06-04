@@ -22,21 +22,14 @@ public class HombreLobo extends Pieza implements Movible {
 		super(blanco,escudo,ataque,hp,x,y,identificador);
 	}
 	
-	public void menuPiezaSeleccionada() {
-		
-		Utils.clearConsole();
+	public void menuPiezaSeleccionada() 
+	{	
+		System.out.println("Hombre lobo : ");
+		System.out.println("HP : " + getHp());
+		System.out.println("Escudo : " + getEscudo());
+		System.out.println("Ataque : " + getAtaque());
 		System.out.println("1 : Mover");
 		System.out.println("2 : Atacar");
 		System.out.println("3 : Saltar");
-		Utils.separador();
 	}
-
-	public void mover() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	
-
 }
