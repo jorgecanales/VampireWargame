@@ -1,23 +1,39 @@
 package game.jugador;
 
+<<<<<<< HEAD
 import game.pieza.AiPieza;
 import game.pieza.Coordenada;
+=======
+>>>>>>> 53923857d3e082f489f86d9a85b192d8b3a0a26c
 import game.pieza.HombreLobo;
 import game.pieza.Muerte;
 import game.pieza.Pieza;
 import game.pieza.Vampiro;
 import game.tablero.Tablero;
+<<<<<<< HEAD
 
 import java.util.ArrayList;
+=======
+import game.ui.Usuario;
+>>>>>>> 53923857d3e082f489f86d9a85b192d8b3a0a26c
 
 public class Jugador {
 
 	Tablero tablero;
 	public Pieza[] piezas;
 	boolean blanco;
+<<<<<<< HEAD
 	public AiPieza ai;
 
 	public Jugador(boolean blanco) {
+=======
+	
+	Usuario user;
+	
+	public Jugador(Usuario user, boolean blanco)
+	{
+		this.user = user;
+>>>>>>> 53923857d3e082f489f86d9a85b192d8b3a0a26c
 		piezas = new Pieza[6];
 		this.blanco = blanco;
 		int y = (blanco) ? 0 : 5;

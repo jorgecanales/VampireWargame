@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import game.jugador.Jugador;
 import game.partida.Partida;
 
+=======
+import game.ui.VampireWarGame;
+>>>>>>> 53923857d3e082f489f86d9a85b192d8b3a0a26c
 
 /**
- * @author napky
+ * @authors napky, wupa
  *
  */
 public class Main {
@@ -12,6 +16,7 @@ public class Main {
 		
 	public static void main(String [] args)
 	{
+<<<<<<< HEAD
 		System.out.println("UNGH");
 		
 		Jugador jugador_1 = new Jugador(true);
@@ -22,6 +27,10 @@ public class Main {
 		partida.play();
 		
 		
+=======
+		VampireWarGame vwg = new VampireWarGame();
+>>>>>>> 53923857d3e082f489f86d9a85b192d8b3a0a26c
 		
+		vwg.correr();
 	}
 }

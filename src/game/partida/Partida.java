@@ -3,11 +3,15 @@ package game.partida;
 import game.jugador.Jugador;
 import game.pieza.TipoDePiezas;
 import game.tablero.Tablero;
+<<<<<<< HEAD
 
 import java.util.Random;
 import java.util.Scanner;
 
 import utilidades.Utils;
+=======
+	
+>>>>>>> 53923857d3e082f489f86d9a85b192d8b3a0a26c
 public class Partida {
 
 	Tablero tablero;
