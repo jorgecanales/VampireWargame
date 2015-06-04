@@ -5,13 +5,15 @@ import game.pieza.Muerte;
 import game.pieza.Pieza;
 import game.pieza.Vampiro;
 import game.tablero.Tablero;
+import game.ui.Usuario;
+
 public class Jugador {
 
 	Tablero tablero;
 	public Pieza[]piezas;
 	boolean blanco;
 	
-	public Jugador(boolean blanco)
+	public Jugador(Usuario user, boolean blanco)
 	{
 		piezas = new Pieza[6];
 		this.blanco = blanco;

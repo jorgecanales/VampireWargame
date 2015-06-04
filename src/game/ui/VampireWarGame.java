@@ -1,3 +1,4 @@
+package game.ui;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -38,7 +39,7 @@ public class VampireWarGame {
 				break;
 
 			case "2":
-				if (crearPlayer())
+				if (crearPlayer(true))
 					menuPrincipal();
 				break;
 
@@ -51,7 +52,7 @@ public class VampireWarGame {
 		} while (!input.equals("3"));
 	}
 
-	private boolean crearPlayer() {
+	private boolean crearPlayer(boolean log) {
 		String username = "", password = "";
 
 		System.out.println("\n\t\t-----Crear Player-----");
@@ -84,6 +85,7 @@ public class VampireWarGame {
 		userManager.addUser(username, password, new Date());
 		System.out.println("\n\t\tPlayer creado exitosamente!");
 
+		if(log)
 		userActivo = userManager.getUser(username);
 
 		return true;
@@ -202,16 +204,20 @@ public class VampireWarGame {
 		
 		jugador1 = userManager.getUser(usernameP1);
 		
-		if(jugador1 == null)
-			crearPlayer();
+		if(jugador1 == null){
+			crearPlayer(false);
+			jugador1 = userManager.getUser(userManager.getUserCount()-1);
+		}
 		
 		System.out.print("\n\t\tIngrese username de jugador 2: ");
 		usernameP2 = in.next();
 		
 		jugador2 = userManager.getUser(usernameP2);
 		
-		if(jugador2 == null)
-			crearPlayer();
+		if(jugador2 == null){
+			crearPlayer(false);
+			jugador2 = userManager.getUser(userManager.getUserCount()-1);
+		}
 		
 		if(jugador2.equals(jugador1)){
 			System.out.println("\n\t\tIngrese otro username para el jugador 2!");
