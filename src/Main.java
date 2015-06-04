@@ -1,9 +1,7 @@
 import game.ui.VampireWarGame;
 
-
-
 /**
- * @author napky
+ * @authors napky, wupa
  *
  */
 public class Main {

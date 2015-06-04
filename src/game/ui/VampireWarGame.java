@@ -183,10 +183,10 @@ public class VampireWarGame {
       		  cargarPartida();
       		  break;
       	  case "3":
-      		  
+      		System.out.println("\n\t\tOpcion estara pronto!");
       		  break;
       	  case "4":
-      		  
+      		System.out.println("\n\t\tOpcion estara pronto!");
       		  break;
       	  }
         } while(!input.equals("5") && userActivo.isActivo());
@@ -224,12 +224,12 @@ public class VampireWarGame {
 			return;
 		}
 		
+		//userActivo.getPartidas().addUser(new Partida());
 		//Comenzar la partida
 	}
 	
 	private void cargarPartida() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("\n\t\tOpcion estara pronto!");
 	}
 
 	private void miCuenta() {
@@ -255,9 +255,6 @@ public class VampireWarGame {
       		  break;
       	  case "3":
       		  cancelarCuenta();
-      		  break;
-      	  case "4":
-      		  
       		  break;
       	  }
         } while(!input.equals("4") && userActivo.isActivo());
@@ -307,7 +304,27 @@ public class VampireWarGame {
 	}
 	
 	private void reportes() {
-		// TODO Auto-generated method stub
+        String input = "";
+        
+        do{
+      	  System.out.println("\n\t\t-----Reportes-----");
+      	  
+      	  System.out.println("\n\t\t1) Ranking");
+      	  System.out.println("\t\t2) Log de Partidas");
+      	  System.out.println("\t\t3) Regresar a Menu Principal");
+      	  
+      	  System.out.print("\n\t\tIngrese una opcion valida: ");
+      	  input = in.next();
+      	  
+      	  switch(input){
+      	  case "1":
+      		  System.out.println("\n\t\tOpcion estara pronto!");
+      		  break;
+      	  case "2":
+      		  System.out.println("\n\t\tOpcion estara pronto!");
+      		  break;
+      	  }
+        } while(!input.equals("3") && userActivo.isActivo());
 		
 	}
 	

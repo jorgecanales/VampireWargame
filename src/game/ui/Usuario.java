@@ -1,4 +1,7 @@
 package game.ui;
+import game.partida.ManagerPartidas;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -10,6 +13,7 @@ public class Usuario {
 	private int puntos;
 	private Date fechaIngreso;
 	private boolean activo;
+	private ManagerPartidas partidas;
 	
 	public Usuario(String username, String password, Date fechaIngreso){
 		setUsername(username);
@@ -17,6 +21,7 @@ public class Usuario {
 		setFechaIngreso(fechaIngreso);
 		setPuntos(0);
 		setActivo(true);
+		partidas = new ManagerPartidas();
 	}
 	public String getUsername() {
 		return username;
@@ -47,6 +52,9 @@ public class Usuario {
 	}
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+	public ManagerPartidas getPartidas() {
+		return partidas;
 	}
 	
 	

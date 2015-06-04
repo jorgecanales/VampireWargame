@@ -13,8 +13,11 @@ public class Jugador {
 	public Pieza[]piezas;
 	boolean blanco;
 	
+	Usuario user;
+	
 	public Jugador(Usuario user, boolean blanco)
 	{
+		this.user = user;
 		piezas = new Pieza[6];
 		this.blanco = blanco;
 		int y = (blanco) ? 0 : 5;
