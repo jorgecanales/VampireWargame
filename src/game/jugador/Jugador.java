@@ -1,14 +1,10 @@
 package game.jugador;
-<<<<<<< HEAD
-=======
+
 import game.pieza.HombreLobo;
 import game.pieza.Muerte;
->>>>>>> 393d8f67fa5ab8125d8a2190b28e096ac9d15fff
 import game.pieza.Pieza;
 import game.pieza.Vampiro;
 import game.tablero.Tablero;
-
-import java.util.ArrayList;
 public class Jugador {
 
 	Tablero tablero;
