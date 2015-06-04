@@ -1,8 +1,8 @@
 package game.tablero;
 
 import game.jugador.Jugador;
-import utilidades.Utils;
-import game.pieza.*;
+import game.pieza.Coordenada;
+import game.pieza.Pieza;
 public class Tablero {
 
 	Jugador jugador_1;
@@ -60,6 +60,44 @@ public class Tablero {
 		}
 	}
 	
+	public boolean posicionDisponible(int x, int y)
+	{
+		if(x >= 0 && x<6)
+			if(y >= 0 && y < 6 )
+				return piezas[y][x] == null;
+		return false;
+		
+	}
 	
+	public Pieza getPiezaAt(int x, int y)
+	{
+		if(x >= 0 && x<6)
+			if(y >= 0 && y < 6 )
+				return piezas[y][x];
+		return null;
+	}
+	public void setPiezaAt(Pieza pieza, int x, int y){ piezas[y][x] = pieza;}
 	
+	public boolean moverPieza(Coordenada destino, Pieza pieza)
+	{
+		return moverPieza(destino.getX(), destino.getY(), pieza);
+	}
+	
+	public boolean moverPieza(int destino_x, int destino_y, Pieza pieza)
+	{
+		if(pieza != null && getPiezaAt( pieza.getX(), pieza.getY()) != null)
+		{
+			int x = pieza.getX();
+			int y = pieza.getY();
+			
+			if(posicionDisponible(destino_x, destino_y))
+			{
+				piezas[destino_y][destino_x] = pieza;
+				pieza.setCoordenada(x, y);
+				piezas[y][x] = null;
+				return true;
+			}
+		}
+		return false;
+	}
 }

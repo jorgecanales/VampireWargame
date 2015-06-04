@@ -7,10 +7,9 @@ public class Vampiro extends Pieza implements Movible {
 	public Vampiro(){}
 	public Vampiro(boolean blanco, int x, int y)
 	{
+		super(x,y);
 		this.blanco = blanco;
 		identificador = (blanco) ? "BV" : "NV";
-		setX(x);
-		setY(y);
 		setHp(4);
 		setEscudo(5);
 		ataque = 3;

@@ -2,19 +2,16 @@ package game.pieza;
 
 import java.util.ArrayList;
 
-import utilidades.Utils;
-
 public class Muerte extends Pieza implements Movible {
 
 	ArrayList<Zombie> zombies;
 	public Muerte(){}
 	public Muerte(boolean blanco, int x, int y)
 	{
+		super(x,y);
 		zombies = new ArrayList<Zombie>();
 		this.blanco = blanco;
 		identificador = (blanco) ? "BM" : "NM";
-		setX(x);
-		setY(y);
 		setHp(3);
 		setEscudo(1);
 		ataque = 4;
@@ -47,5 +44,7 @@ public class Muerte extends Pieza implements Movible {
 				if(zombies.get(j).getHp() <= 0)
 					zombies.remove(j);
 	}
+	
+	public ArrayList<Zombie> getZombies(){return zombies;}
 
 }

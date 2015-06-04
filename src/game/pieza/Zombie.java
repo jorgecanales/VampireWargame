@@ -1,16 +1,15 @@
 package game.pieza;
 
-import utilidades.Utils;
+
 
 public class Zombie extends Pieza {
 	
 	public Zombie(){}
 	public Zombie(boolean blanco, int x, int y)
 	{
+		super(x,y);
 		this.blanco = blanco;
 		identificador = (blanco) ? "BZ" : "NZ";
-		setX(x);
-		setY(y);
 		setHp(1);
 		setEscudo(0);
 		ataque = 1;

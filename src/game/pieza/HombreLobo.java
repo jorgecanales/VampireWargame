@@ -1,19 +1,18 @@
 package game.pieza;
 
-import utilidades.Utils;
 
 public class HombreLobo extends Pieza implements Movible {
 	
 	public HombreLobo(){}
 	public HombreLobo(boolean blanco, int x, int y)
 	{
+		super(x,y);
 		this.blanco = blanco;
 		identificador = (blanco) ? "BL" : "NL";
-		setX(x);
-		setY(y);
 		setHp(5);
 		setEscudo(2);
 		ataque = 5;
+		speed = 2;
 	}
 	
 	public HombreLobo(boolean blanco, int escudo, int ataque, 
