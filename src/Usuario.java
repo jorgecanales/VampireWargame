@@ -49,6 +49,12 @@ public class Usuario {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "\n\t\tUsername: " + username + "\n\t\tPassword: " + password +
+				"\n\t\tPuntos: " + puntos + "\n\t\tFecha de Ingreso: " + fechaIngreso.toString() +
+				"\n\t\tActivo: " + (activo ? "Si" : "No");
+	}
 	
 	
 	
