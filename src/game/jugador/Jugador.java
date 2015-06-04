@@ -108,5 +108,18 @@ public class Jugador {
 					pieza);
 		return false;
 	}
+	
+	public boolean atacarPieza(Pieza atacante, Pieza atacada)
+	{
+		ArrayList<Pieza> piezasAtacables = ai.getPiezasAtacables(atacante);
+		for(Pieza pieza : piezasAtacables)
+			if(pieza.equals(atacada))
+			{
+				atacante.atacar(pieza);
+				return true;
+			}
+				
+		return false;
+	}
 
 }

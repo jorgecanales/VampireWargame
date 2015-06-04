@@ -15,6 +15,7 @@ public class Muerte extends Pieza implements Movible {
 		setHp(3);
 		setEscudo(1);
 		ataque = 4;
+		tipo = TipoDePiezas.MUERTE;
 	}
 	
 	public Muerte(boolean blanco, int escudo, int ataque, 
@@ -37,6 +38,7 @@ public class Muerte extends Pieza implements Movible {
 	public void clearZombies(){zombies.clear();}
 	public int getNumeroDeZombies(){return zombies.size();}
 	public void addZombie(int x, int y){zombies.add(new Zombie(this.blanco, x, y));}
+	
 	public void checkHpZombies()
 	{
 		for(int j = 0 ; j<zombies.size(); j++)

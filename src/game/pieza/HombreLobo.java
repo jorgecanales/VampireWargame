@@ -13,6 +13,7 @@ public class HombreLobo extends Pieza implements Movible {
 		setEscudo(2);
 		ataque = 5;
 		speed = 2;
+		tipo = TipoDePiezas.HOMBRELOBO;
 	}
 	
 	public HombreLobo(boolean blanco, int escudo, int ataque, 

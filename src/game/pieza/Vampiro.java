@@ -13,6 +13,7 @@ public class Vampiro extends Pieza implements Movible {
 		setHp(4);
 		setEscudo(5);
 		ataque = 3;
+		tipo = TipoDePiezas.VAMPIRO;
 	}
 	
 	public Vampiro(boolean blanco, int escudo, int ataque, 

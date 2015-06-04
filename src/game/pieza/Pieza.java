@@ -6,6 +6,7 @@ public abstract class Pieza {
 	protected int hp = 0,speed = 1,escudo = 0,ataque = 0;
 	protected String identificador = "--";
 	protected int index;
+	protected TipoDePiezas tipo;
 	public Pieza(){}
 	
 	public Pieza(int x, int y)
@@ -27,6 +28,9 @@ public abstract class Pieza {
 	{
 		if(pieza != null && pieza.blanco != this.blanco)
 		{
+			System.out.println("Fuerza de ataque : " + getAtaque());
+			System.out.println("HP : " + pieza.getHp());
+			System.out.println("Escudo : " + pieza.getEscudo());
 			int ataque = getAtaque();
 			
 			pieza.setEscudo(pieza.getEscudo() - ataque);
@@ -38,6 +42,8 @@ public abstract class Pieza {
 				if(pieza.getHp() < 0)
 					pieza.setHp(0);
 			}
+			System.out.println("HP : " + pieza.getHp());
+			System.out.println("Escudo : " + pieza.getEscudo());
 			return true;
 		}
 		return false;
@@ -64,6 +70,7 @@ public abstract class Pieza {
 	public void setCoordenada(int x, int y){coordenada.set(x, y);}
 	public void setCoordenada(Coordenada coordenada){this.coordenada.set(coordenada);}
 	public int getSpeed(){return speed;}
+	
 	@Override
 	public boolean equals(Object object) {
 		

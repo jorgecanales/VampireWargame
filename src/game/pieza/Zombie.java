@@ -13,6 +13,7 @@ public class Zombie extends Pieza {
 		setHp(1);
 		setEscudo(0);
 		ataque = 1;
+		tipo = TipoDePiezas.ZOMBIE;
 	}
 	
 	public Zombie(boolean blanco, int escudo, int ataque, 
