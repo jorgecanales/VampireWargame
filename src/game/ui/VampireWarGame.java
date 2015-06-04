@@ -1,4 +1,7 @@
 package game.ui;
+import game.jugador.Jugador;
+import game.partida.Partida;
+
 import java.util.Date;
 import java.util.Scanner;
 
@@ -224,8 +227,13 @@ public class VampireWarGame {
 			return;
 		}
 		
-		//userActivo.getPartidas().addUser(new Partida());
-		//Comenzar la partida
+		Jugador j1 = new Jugador(jugador1, true);
+		Jugador j2 = new Jugador(jugador2, false);
+		Partida nuevaPartida = new Partida(j1, j2);
+		
+		userActivo.getPartidas().addUser(nuevaPartida);
+		
+		nuevaPartida.play();
 	}
 	
 	private void cargarPartida() {
