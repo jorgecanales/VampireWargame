@@ -1,5 +1,8 @@
 package game.pieza;
 
+import java.util.Scanner;
+
+import game.partida.Partida;
 import utilidades.Utils;
 
 public class Vampiro extends Pieza implements Movible {
@@ -22,13 +25,17 @@ public class Vampiro extends Pieza implements Movible {
 		super(blanco,escudo,ataque,hp,x,y,identificador);
 	}
 	
-	public void menuPiezaSeleccionada() {
+	public void menuPiezaSeleccionada(Partida partida) {
 		
-		Utils.clearConsole();
+		int respuesta = -1;
+		boolean end = false;
+		Scanner scanner = new Scanner(System.in);
+		Utils.separador();
 		System.out.println("Muerte : ");
 		System.out.println("HP : " + getHp());
 		System.out.println("Escudo : " + getEscudo());
 		System.out.println("Ataque : " + getAtaque());
+		Utils.separador();
 		System.out.println("1 : Mover");
 		System.out.println("2 : Atacar");
 		System.out.println("3 : Chupar Sangre");

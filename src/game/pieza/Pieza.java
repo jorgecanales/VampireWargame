@@ -1,4 +1,13 @@
 package game.pieza;
+
+import game.jugador.Jugador;
+import game.partida.Partida;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import utilidades.Utils;
+
 public abstract class Pieza {
 	
 	protected boolean blanco = true;
@@ -7,6 +16,7 @@ public abstract class Pieza {
 	protected String identificador = "--";
 	protected int index;
 	protected TipoDePiezas tipo;
+	
 	public Pieza(){}
 	
 	public Pieza(int x, int y)
@@ -28,9 +38,10 @@ public abstract class Pieza {
 	{
 		if(pieza != null && pieza.blanco != this.blanco)
 		{
+			System.out.println("Resumen del ataque : ");
 			System.out.println("Fuerza de ataque : " + getAtaque());
-			System.out.println("HP : " + pieza.getHp());
-			System.out.println("Escudo : " + pieza.getEscudo());
+			System.out.println("HP de la pieza atacada antes del ataque: " + pieza.getHp());
+			System.out.println("Escudo de la pieza atacada antes del ataque: " + pieza.getEscudo());
 			int ataque = getAtaque();
 			
 			pieza.setEscudo(pieza.getEscudo() - ataque);
@@ -42,8 +53,8 @@ public abstract class Pieza {
 				if(pieza.getHp() < 0)
 					pieza.setHp(0);
 			}
-			System.out.println("HP : " + pieza.getHp());
-			System.out.println("Escudo : " + pieza.getEscudo());
+			System.out.println("HP resultante : " + pieza.getHp());
+			System.out.println("Escudo resultante : " + pieza.getEscudo());
 			return true;
 		}
 		return false;
@@ -80,6 +91,63 @@ public abstract class Pieza {
 			return (pieza.isBlanco() == this.isBlanco()) 
 					&& (pieza.index == this.getIndex());
 		}
+		return false;
+	}
+	
+	protected Jugador getDueno(Partida partida)
+	{
+		if(partida.jugador_1.isBlanco() == this.isBlanco())
+			return partida.jugador_1;
+		else
+			return partida.jugador_2;
+		
+	}
+	
+	protected boolean seleccion_mover(Scanner scanner, Jugador jugador)
+	{
+		
+		ArrayList<Coordenada> movimientosDisponibles = jugador.ai.getMovimientosDisponibles(this);
+		
+		System.out.print("Coordenadas para movimientos disponibles : ");
+		for(Coordenada coordenada : movimientosDisponibles)
+			System.out.print(coordenada + ", ");
+		
+		System.out.println();
+		System.out.println("Ingrese las coordenadas destino de la pieza : ");
+		Utils.separador();
+		int x = 0;
+		int y = 0;
+		System.out.print("X : ");
+		x = scanner.nextInt();
+		System.out.print("Y : ");
+		y = scanner.nextInt();
+		System.out.println();
+		Utils.separador();
+		return jugador.moverPieza(x, y, this);
+		
+	}
+	
+	protected boolean seleccion_atacar(Scanner scanner, Jugador jugador)
+	{
+		ArrayList<Pieza> piezasAtacables = jugador.ai.getPiezasAtacables(this);
+		
+		System.out.print("Coordenadas para piezas que pueden ser atacadas : ");
+		for(Pieza pieza : piezasAtacables)
+			System.out.print(pieza.getCoordenada() + ", ");
+		
+		System.out.println();
+		System.out.println("Ingrese las coordenadas  de la pieza a atacar : ");
+		Utils.separador();
+		int x = 0;
+		int y = 0;
+		System.out.print("X : ");
+		x = scanner.nextInt();
+		System.out.print("Y : ");
+		y = scanner.nextInt();
+		Utils.separador();
+		Pieza pieza = jugador.tablero.getPiezaAt(x, y);
+		if(pieza != null)
+			return jugador.atacarPieza(this, pieza);
 		return false;
 	}
 }

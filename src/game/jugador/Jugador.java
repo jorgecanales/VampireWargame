@@ -19,11 +19,11 @@ import game.ui.Usuario;
 
 public class Jugador {
 
-	Tablero tablero;
+	public Tablero tablero;
 	public Pieza[] piezas;
 	boolean blanco;
 	public AiPieza ai;
-	Usuario user;
+	public Usuario user;
 	
 	
 	public Jugador(Usuario user, boolean blanco)
@@ -108,6 +108,7 @@ public class Jugador {
 			tablero.moverPieza(coordenada_destino, pieza);
 			pieza.setX(destino_x);
 			pieza.setY(destino_y);
+			return true;
 		}
 		return false;
 	}
@@ -132,6 +133,11 @@ public class Jugador {
 			}
 				
 		return false;
+	}
+	
+	public boolean isBlanco()
+	{
+		return blanco;
 	}
 
 }

@@ -1,6 +1,11 @@
 package game.pieza;
 
+import game.partida.Partida;
+
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import utilidades.Utils;
 
 public class Muerte extends Pieza implements Movible {
 
@@ -23,17 +28,23 @@ public class Muerte extends Pieza implements Movible {
 	{
 		super(blanco,escudo,ataque,hp,x,y,identificador);
 	}
-	public void menuPiezaSeleccionada() 
+	public void menuPiezaSeleccionada(Partida partida) 
 	{
+		int respuesta = -1;
+		boolean end = false;
+		Scanner scanner = new Scanner(System.in);
+		Utils.separador();
 		System.out.println("Muerte : ");
 		System.out.println("HP : " + getHp());
 		System.out.println("Escudo : " + getEscudo());
 		System.out.println("Ataque : " + getAtaque());
 		System.out.println("Zombies : " + getNumeroDeZombies());
+		Utils.separador();
 		System.out.println("1 : Mover");
 		System.out.println("2 : Atacar con lanza");
 		System.out.println("3 : Atacar con zombie");
 		System.out.println("4 : Conjurar Zombie");
+		Utils.separador();
 	}
 	public void clearZombies(){zombies.clear();}
 	public int getNumeroDeZombies(){return zombies.size();}
