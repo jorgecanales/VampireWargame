@@ -1,5 +1,6 @@
 package game.pieza;
 
+import game.jugador.Jugador;
 import game.partida.Partida;
 
 import java.util.ArrayList;
@@ -33,18 +34,38 @@ public class Muerte extends Pieza implements Movible {
 		int respuesta = -1;
 		boolean end = false;
 		Scanner scanner = new Scanner(System.in);
-		Utils.separador();
-		System.out.println("Muerte : ");
-		System.out.println("HP : " + getHp());
-		System.out.println("Escudo : " + getEscudo());
-		System.out.println("Ataque : " + getAtaque());
-		System.out.println("Zombies : " + getNumeroDeZombies());
-		Utils.separador();
-		System.out.println("1 : Mover");
-		System.out.println("2 : Atacar con lanza");
-		System.out.println("3 : Atacar con zombie");
-		System.out.println("4 : Conjurar Zombie");
-		Utils.separador();
+		while(!end)
+		{
+		
+			Utils.separador();
+			System.out.println("Muerte : ");
+			System.out.println("HP : " + getHp());
+			System.out.println("Escudo : " + getEscudo());
+			System.out.println("Ataque : " + getAtaque());
+			Utils.separador();
+			System.out.println("1 : Mover");
+			System.out.println("2 : Atacar");
+			Utils.separador();
+			Jugador jugador = getDueno(partida);
+			respuesta = scanner.nextInt();
+			Utils.separador();
+			int x = 0;
+			int y = 0;
+			switch(respuesta)
+			{
+				case 1 : 
+						end = seleccion_mover(scanner, jugador);
+						if(!end)
+							System.out.println("Movimiento invalido!");
+					break;
+				case 2 :
+						end = seleccion_atacar(scanner, jugador);
+						if(!end)
+							System.out.println("Movimiento invalido!");
+					
+					break;
+			}
+		}
 	}
 	public void clearZombies(){zombies.clear();}
 	public int getNumeroDeZombies(){return zombies.size();}

@@ -139,5 +139,15 @@ public class Jugador {
 	{
 		return blanco;
 	}
+	
+	public int getCantidadDePiezasMovibles()
+	{
+		int contador = 0;
+		
+		for(int c = 0 ; c<6;c++)
+			if(piezas[c] != null)
+				contador++;
+		return contador;
+	}
 
 }

@@ -105,7 +105,8 @@ public abstract class Pieza {
 	
 	protected boolean seleccion_mover(Scanner scanner, Jugador jugador)
 	{
-		
+		jugador.tablero.printTablero();
+		Utils.separador();
 		ArrayList<Coordenada> movimientosDisponibles = jugador.ai.getMovimientosDisponibles(this);
 		
 		System.out.print("Coordenadas para movimientos disponibles : ");
@@ -131,6 +132,8 @@ public abstract class Pieza {
 	{
 		ArrayList<Pieza> piezasAtacables = jugador.ai.getPiezasAtacables(this);
 		
+		jugador.tablero.printTablero();
+		Utils.separador();
 		System.out.print("Coordenadas para piezas que pueden ser atacadas : ");
 		for(Pieza pieza : piezasAtacables)
 			System.out.print(pieza.getCoordenada() + ", ");

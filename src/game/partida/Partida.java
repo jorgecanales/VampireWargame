@@ -45,7 +45,16 @@ public class Partida {
 			Utils.separador();
 
 			ejecutarTurno(turno_jugador_1);
-
+			
+			this.checkHpDePiezas();
+			int piezas_movibles_jugador_1 = jugador_1.getCantidadDePiezasMovibles();
+			int piezas_movibles_jugador_2 = jugador_2.getCantidadDePiezasMovibles();
+			int piezas_totales_jugador_1 = jugador_1.getCantidadDePiezas();
+			int piezas_totales_jugador_2 = jugador_2.getCantidadDePiezas();
+			
+			if(piezas_totales_jugador_1 == 0 || piezas_totales_jugador_2 == 0)
+				gameOver=true;
+			
 			if (turno_jugador_1)
 				turno_jugador_1 = false;
 			else
@@ -120,17 +129,17 @@ public class Partida {
 		tablero.printTablero();
 		Utils.separador();
 		System.out.println("Introduzca las coordenadas de la pieza a inspeccionar : ");
-		System.out.print("Piezas Inspeccionables : ");
+		System.out.println("Piezas Inspeccionables : ");
 		
-		System.out.print("Piezas del jugador 1 : ");
+		System.out.print("Piezas del jugador 1 : " + jugador_1.user.getUsername());
 		for(int c = 0 ; c<6; c++)
 			if(jugador_1.piezas[c] != null)
 				System.out.print(jugador_1.piezas[c].getCoordenada() + ", ");
 		System.out.println();
-		System.out.print("Piezas del jugador 2 : ");
+		System.out.print("Piezas del jugador 2 : " + jugador_2.user.getUsername());
 		for(int c = 0 ; c<6; c++)
 			if(jugador_2.piezas[c] != null)
-				System.out.print(jugador_1.piezas[c].getCoordenada() + ", ");
+				System.out.print(jugador_2.piezas[c].getCoordenada() + ", ");
 		
 			
 		System.out.println();
@@ -202,5 +211,11 @@ public class Partida {
 			return jugador_1;
 		else
 			return jugador_2;
+	}
+	
+	private void checkHpDePiezas()
+	{
+		jugador_1.checkHpPiezas();
+		jugador_2.checkHpPiezas();
 	}
 }

@@ -2,6 +2,7 @@ package game.pieza;
 
 import java.util.Scanner;
 
+import game.jugador.Jugador;
 import game.partida.Partida;
 import utilidades.Utils;
 
@@ -30,16 +31,37 @@ public class Vampiro extends Pieza implements Movible {
 		int respuesta = -1;
 		boolean end = false;
 		Scanner scanner = new Scanner(System.in);
-		Utils.separador();
-		System.out.println("Muerte : ");
-		System.out.println("HP : " + getHp());
-		System.out.println("Escudo : " + getEscudo());
-		System.out.println("Ataque : " + getAtaque());
-		Utils.separador();
-		System.out.println("1 : Mover");
-		System.out.println("2 : Atacar");
-		System.out.println("3 : Chupar Sangre");
-		Utils.separador();
+		while(!end)
+		{
+			Utils.separador();
+			System.out.println("Vampiro : ");
+			System.out.println("HP : " + getHp());
+			System.out.println("Escudo : " + getEscudo());
+			System.out.println("Ataque : " + getAtaque());
+			Utils.separador();
+			System.out.println("1 : Mover");
+			System.out.println("2 : Atacar");
+			Utils.separador();
+			Jugador jugador = getDueno(partida);
+			respuesta = scanner.nextInt();
+			Utils.separador();
+			int x = 0;
+			int y = 0;
+			switch(respuesta)
+			{
+				case 1 : 
+						end = seleccion_mover(scanner, jugador);
+						if(!end)
+							System.out.println("Movimiento invalido!");
+					break;
+				case 2 :
+						end = seleccion_atacar(scanner, jugador);
+						if(!end)
+							System.out.println("Movimiento invalido!");
+					
+					break;
+			}
+		}
 	}
 	
 }
