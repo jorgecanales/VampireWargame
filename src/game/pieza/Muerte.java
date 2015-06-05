@@ -36,7 +36,6 @@ public class Muerte extends Pieza implements Movible {
 		Scanner scanner = new Scanner(System.in);
 		while(!end)
 		{
-		
 			Utils.separador();
 			System.out.println("Muerte : ");
 			System.out.println("HP : " + getHp());
